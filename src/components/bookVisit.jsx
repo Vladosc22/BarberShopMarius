@@ -139,6 +139,7 @@ export default function CTABanner() {
 
                     {/* Secondary — ghost */}
                     <button
+                        type="button"
                         style={{
                             background: "transparent",
                             border: "1px solid rgba(255,255,255,0.45)",
@@ -160,6 +161,9 @@ export default function CTABanner() {
                             e.currentTarget.style.borderColor = "rgba(255,255,255,0.45)";
                             e.currentTarget.style.color = "#ffffff";
                             e.currentTarget.style.transform = "translateY(0)";
+                        }}
+                        onClick={() => {
+                            window.location.href = "tel:+37368376883";
                         }}
                     >
                         +373 68 376 883
