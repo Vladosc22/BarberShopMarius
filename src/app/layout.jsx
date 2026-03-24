@@ -29,6 +29,14 @@ const inter = Inter({
 export const metadata = {
   title: "WB Barbershop",
   description: "WB Barbershop",
+  openGraph: {
+    title: "WB Barbershop",
+    description: "WB Barbershop",
+  },
+  twitter: {
+    title: "WB Barbershop",
+    description: "WB Barbershop",
+  },
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
