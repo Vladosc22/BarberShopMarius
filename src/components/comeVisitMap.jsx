@@ -214,6 +214,7 @@ export default function ComeVisit() {
                         </button>
 
                         <button
+                            type="button"
                             style={{
                                 background: "transparent",
                                 border: "1px solid rgba(201,168,76,0.35)",
@@ -231,6 +232,9 @@ export default function ComeVisit() {
                             onMouseLeave={(e) => {
                                 e.currentTarget.style.borderColor = "rgba(201,168,76,0.35)";
                                 e.currentTarget.style.background = "transparent";
+                            }}
+                            onClick={() => {
+                                window.location.href = "tel:+37368376883";
                             }}
                         >
                             <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
