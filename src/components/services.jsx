@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 const services = [
     {
         id: 1,
-        title: "Haircut & Beard Trim",
+        title: "TUNS & ARANJARE BARBĂ",
         description:
-            "Precision cuts tailored to your face shape, paired with expert beard sculpting for a sharp, polished finish.",
+            "Tunsori precise adaptate formei feței tale, combinate cu modelarea expertă a bărbii pentru un aspect îngrijit și elegant.",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
                 <path d="M20 10 L10 30 M20 10 L30 30 M12 24 L28 24" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -18,9 +18,9 @@ const services = [
     },
     {
         id: 2,
-        title: "Shaves & Haircut",
+        title: "Ras & tuns",
         description:
-            "A traditional straight-razor shave combined with a classic cut — the ultimate grooming experience.",
+            "Un bărbierit tradițional cu briciul, combinat cu un tuns clasic — experiența supremă de îngrijire.",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
                 <path d="M10 15 L45 38" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
@@ -31,9 +31,9 @@ const services = [
     },
     {
         id: 3,
-        title: "Facial & Shave",
+        title: "TRATAMENT FACIAL & RAS",
         description:
-            "Deep cleansing facial treatments paired with a hot-towel shave to refresh, restore and rejuvenate.",
+            "Tratamente faciale de curățare profundă, combinate cu un bărbierit cu prosop fierbinte pentru a revitaliza, reface și întineri.",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
                 <path d="M15 28 Q10 22 14 16 Q20 8 30 10 Q40 8 46 16 Q50 22 45 28 Q42 38 30 44 Q18 38 15 28Z" stroke="#C9A84C" strokeWidth="1.5" strokeLinejoin="round"/>
@@ -43,9 +43,9 @@ const services = [
     },
     {
         id: 4,
-        title: "The Big Day",
+        title: "ZIUA CEA MARE",
         description:
-            "Look your absolute best for weddings, special events or milestones — our signature grooming package.",
+            "Arată impecabil pentru nunți, evenimente speciale sau momente importante — pachetul nostru de îngrijire premium.",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
                 <path d="M12 30 Q16 24 22 26 Q26 28 30 26 Q34 24 38 26 Q44 28 48 30" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
@@ -127,7 +127,7 @@ export default function Services() {
                         fontStyle: "italic",
                     }}
                 >
-                    Our Treatment
+                    TRATAMENTELE NOASTRE
                 </p>
                 <h1
                     style={{
@@ -140,7 +140,7 @@ export default function Services() {
                         fontFamily: "'Georgia', 'Times New Roman', serif",
                     }}
                 >
-                    Services
+                    Servicii
                 </h1>
                 {/* Gold divider */}
                 <div
@@ -258,7 +258,10 @@ export default function Services() {
                     transition: "opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s",
                 }}
             >
-                <button
+                <a
+                    href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                         background: "transparent",
                         border: "1px solid #C9A84C",
@@ -270,18 +273,20 @@ export default function Services() {
                         cursor: "pointer",
                         fontFamily: "'Georgia', serif",
                         transition: "all 0.3s ease",
+                        textDecoration: "none",
+                        display: "inline-block",
                     }}
                     onMouseEnter={(e) => {
-                        e.target.style.background = "#C9A84C";
-                        e.target.style.color = "#0a0a0a";
+                        e.currentTarget.style.background = "#C9A84C";
+                        e.currentTarget.style.color = "#0a0a0a";
                     }}
                     onMouseLeave={(e) => {
-                        e.target.style.background = "transparent";
-                        e.target.style.color = "#C9A84C";
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.color = "#C9A84C";
                     }}
                 >
-                    Explore Now
-                </button>
+                    Programează-te acum
+                </a>
             </div>
         </div>
     );

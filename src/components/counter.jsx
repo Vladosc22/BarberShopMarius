@@ -6,7 +6,7 @@ const stats = [
     {
         id: 1,
         value: 2500,
-        label: "Shaves",
+        label: "bărbieriri",
         icon: (
             <svg viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="56">
                 <rect x="18" y="2" width="14" height="28" rx="2" stroke="#C9A84C" strokeWidth="1.8"/>
@@ -20,7 +20,7 @@ const stats = [
     {
         id: 2,
         value: 4500,
-        label: "Haircuts",
+        label: "tunsori",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="52">
                 <path d="M20 10 L10 30 M20 10 L30 30 M12 24 L28 24" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -34,7 +34,7 @@ const stats = [
     {
         id: 3,
         value: 23,
-        label: "Open Shops",
+        label: "tratamente & proceduri faciale",
         icon: (
             <svg viewBox="0 0 60 56" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="52">
                 <rect x="6" y="22" width="48" height="30" rx="1" stroke="#C9A84C" strokeWidth="1.8"/>
