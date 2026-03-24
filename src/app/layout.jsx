@@ -27,8 +27,13 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Barbershop Hero",
+  title: "WB Barbershop",
   description: "Premium cinematic hero section for a luxury barbershop web app.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
