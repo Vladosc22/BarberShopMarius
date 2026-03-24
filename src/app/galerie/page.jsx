@@ -11,6 +11,18 @@ const navItems = [
   { label: "Contact Us", href: "/#contact" },
 ];
 
+const galleryPhotos = [
+  { id: 1, src: "/images/img1.png", alt: "Galerie photo 1" },
+  { id: 2, src: "/images/img2.png", alt: "Galerie photo 2" },
+  { id: 3, src: "/images/img3.png", alt: "Galerie photo 3" },
+  { id: 4, src: "/images/img4.png", alt: "Galerie photo 4" },
+  { id: 5, src: "/images/img5.png", alt: "Galerie photo 5" },
+  { id: 6, src: "/images/img6.png", alt: "Galerie photo 6" },
+  { id: 7, src: "/images/img7.png", alt: "Galerie photo 7" },
+  { id: 8, src: "/images/img8.png", alt: "Galerie photo 8" },
+  { id: 9, src: "/images/img9.png", alt: "Galerie photo 9" },
+];
+
 function HamburgerIcon({ open = false }) {
   return (
       <svg
@@ -52,51 +64,75 @@ function ScissorIcon() {
 }
 
 /* ── placeholder image card ── */
-function GalerieCard({ index }) {
+function GalerieCard({ index, photo, onOpen }) {
   const [hovered, setHovered] = useState(false);
+  const [imgBroken, setImgBroken] = useState(false);
   const accents = [
     "#c8a96e", "#8b7e5e", "#6e7e5e", "#7e8e9e", "#9e7e7e", "#7e9e8e",
     "#9e8e6e", "#6e7e9e", "#b07070",
   ];
   const color = accents[index % accents.length];
+  const hasImage = Boolean(photo?.src) && !imgBroken;
 
   return (
       <article
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
+          onClick={() => hasImage && onOpen(photo)}
+          onKeyDown={(e) => {
+            if (!hasImage) return;
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              onOpen(photo);
+            }
+          }}
+          role={hasImage ? "button" : undefined}
+          tabIndex={hasImage ? 0 : -1}
           style={{
             transition: "transform 0.3s ease, box-shadow 0.3s ease",
             transform: hovered ? "translateY(-4px)" : "translateY(0)",
             boxShadow: hovered
                 ? `0 16px 48px ${color}28, 0 0 0 1px ${color}35`
                 : "0 2px 16px rgba(0,0,0,0.6)",
+            cursor: hasImage ? "zoom-in" : "default",
           }}
           className="relative overflow-hidden rounded-xl border border-[#d4af37]/20 bg-[linear-gradient(140deg,#1b1512,#0f0d0c)]"
       >
         {/* placeholder gradient fills in for real images */}
-        <div
-            className="h-52 w-full"
-            style={{
-              background: `radial-gradient(ellipse at 40% 35%, ${color}40 0%, ${color}15 50%, #0f0d0c 100%)`,
-            }}
-        >
-          {/* camera icon */}
-          <div className="flex h-full items-center justify-center">
+        <div className="relative h-52 w-full overflow-hidden">
+          {hasImage ? (
+            <img
+                src={photo.src}
+                alt={photo.alt}
+                onError={() => setImgBroken(true)}
+                className="h-full w-full object-cover object-center"
+            />
+          ) : (
             <div
-                className="flex h-12 w-12 items-center justify-center rounded-full"
-                style={{ border: `1px solid ${color}40`, opacity: 0.45 }}
+                className="h-full w-full"
+                style={{
+                  background: `radial-gradient(ellipse at 40% 35%, ${color}40 0%, ${color}15 50%, #0f0d0c 100%)`,
+                }}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path
-                    d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"
-                    stroke={color}
-                    strokeWidth="1.5"
-                />
-                <circle cx="8.5" cy="8.5" r="1.5" stroke={color} strokeWidth="1.5" />
-                <path d="m21 15-5-5L5 21" stroke={color} strokeWidth="1.5" />
-              </svg>
+              {/* camera icon fallback */}
+              <div className="flex h-full items-center justify-center">
+                <div
+                    className="flex h-12 w-12 items-center justify-center rounded-full"
+                    style={{ border: `1px solid ${color}40`, opacity: 0.45 }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"
+                        stroke={color}
+                        strokeWidth="1.5"
+                    />
+                    <circle cx="8.5" cy="8.5" r="1.5" stroke={color} strokeWidth="1.5" />
+                    <path d="m21 15-5-5L5 21" stroke={color} strokeWidth="1.5" />
+                  </svg>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* hover overlay */}
@@ -138,11 +174,22 @@ function CornerDiamond({ className }) {
 
 export default function GaleriePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    const shouldLockScroll = menuOpen || Boolean(selectedPhoto);
+    document.body.style.overflow = shouldLockScroll ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
+  }, [menuOpen, selectedPhoto]);
+
+  useEffect(() => {
+    if (!selectedPhoto) return undefined;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setSelectedPhoto(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selectedPhoto]);
 
   useEffect(() => {
     if (!window.location.hash) return;
@@ -305,14 +352,14 @@ export default function GaleriePage() {
               </p>
             </div>
 
-            <div className="mt-7 flex gap-3 md:mt-9">
-              <a
-                  href="#galerie-content"
-                  className="font-label inline-flex items-center justify-center rounded-[10px] bg-[#d4af37] px-6 py-3.5 text-[15px] font-medium text-[#15110f] transition hover:brightness-110"
-              >
-                View Gallery
-              </a>
-            </div>
+            {/*<div className="mt-7 flex gap-3 md:mt-9">*/}
+            {/*  /!*<a*!/*/}
+            {/*  /!*    href="#galerie-content"*!/*/}
+            {/*  /!*    className="font-label inline-flex items-center justify-center rounded-[10px] bg-[#d4af37] px-6 py-3.5 text-[15px] font-medium text-[#15110f] transition hover:brightness-110"*!/*/}
+            {/*  /!*>*!/*/}
+            {/*  /!*  View Gallery*!/*/}
+            {/*  /!*</a>*!/*/}
+            {/*</div>*/}
           </div>
         </section>
 
@@ -332,12 +379,42 @@ export default function GaleriePage() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {Array.from({ length: 9 }).map((_, i) => (
-                  <GalerieCard key={i} index={i} />
+              {galleryPhotos.map((photo, i) => (
+                  <GalerieCard
+                      key={photo.id}
+                      index={i}
+                      photo={photo}
+                      onOpen={setSelectedPhoto}
+                  />
               ))}
             </div>
           </div>
         </section>
+
+        {selectedPhoto && (
+            <div
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 md:p-8"
+                onClick={() => setSelectedPhoto(null)}
+                role="dialog"
+                aria-modal="true"
+                aria-label={selectedPhoto.alt}
+            >
+              <button
+                  type="button"
+                  aria-label="Close photo"
+                  className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-[#d4af37]/60 text-[#d4af37] transition hover:bg-[#d4af37]/20"
+                  onClick={() => setSelectedPhoto(null)}
+              >
+                ✕
+              </button>
+              <img
+                  src={selectedPhoto.src}
+                  alt={selectedPhoto.alt}
+                  className="max-h-[90vh] max-w-[95vw] rounded-md object-contain"
+                  onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+        )}
       </main>
   );
 }
