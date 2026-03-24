@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "Home", href: "#home", active: true },
-  { label: "Services", href: "#services" },
+  { label: "Acasă", href: "#home", active: true },
+  { label: "Servicii", href: "#services" },
   { label: "Galerie", href: "/galerie#galerie-content" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Contactează-ne", href: "#contact" },
 ];
 
 const backgroundAsset = "/videos/ezgif.com-video-to-gif-converter.gif";
@@ -146,10 +146,12 @@ export function BarbershopHero() {
             </nav>
 
             <a
-              href="#booking"
+              href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-label hidden h-11 items-center justify-self-end border border-[#d4af37] bg-white/0 px-5 py-0 text-center text-[14px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12 md:inline-flex md:justify-self-end"
             >
-              Book Appointment
+              Programează-te
             </a>
           </header>
         </div>
@@ -202,7 +204,9 @@ export function BarbershopHero() {
             ),
           )}
           <a
-            href="#booking"
+            href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="font-label mt-4 inline-flex border border-[#d4af37] px-5 py-3 text-sm uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12"
           >
@@ -252,21 +256,22 @@ export function BarbershopHero() {
           </div>
 
           <p className="font-body mt-5 max-w-[620px] text-[16px] leading-7 text-white/70 md:mt-6 md:text-[18px]">
-            Classic cuts, modern style, and a timeless barbershop experience.
-          </p>
+            Tunsori clasice, stil modern și o experiență de frizerie atemporală.          </p>
 
           <div id="booking" className="mt-5 flex flex-col gap-3 sm:flex-row md:mt-7">
             <a
-              href="#booking"
+              href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-label inline-flex items-center justify-center rounded-[10px] bg-[#d4af37] px-6 py-3.5 text-[16px] font-medium text-[#15110f] transition hover:brightness-110"
             >
-              Book Appointment
+              Programează-te
             </a>
             <a
               href="#services"
               className="font-label inline-flex items-center justify-center rounded-[10px] border border-[#d4af37]/50 bg-[#2a1f1a]/80 px-6 py-3.5 text-[16px] font-medium text-white transition hover:border-[#d4af37] hover:bg-[#342620]"
             >
-              Explore Services
+              Explorează Serviciile
             </a>
           </div>
         </div>
