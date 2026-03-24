@@ -99,17 +99,19 @@ export function BarbershopHero() {
         </div>
 
         <div className="relative z-20 px-6 py-[16px] md:px-10 xl:px-[120px]">
-          <header className="grid grid-cols-[auto,1fr] items-center md:grid-cols-[auto,1fr,auto]">
+          <header className="flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:items-center">
             <button
               type="button"
               onClick={() => setMenuOpen((open) => !open)}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-              className="flex h-11 w-11 items-center justify-center text-[#d4af37] transition hover:opacity-80"
+              className="flex h-11 w-11 items-center justify-center text-[#d4af37] transition hover:opacity-80 md:hidden"
             >
               <HamburgerIcon open={menuOpen} />
             </button>
+
+            <div className="hidden md:block" aria-hidden="true" />
 
             <nav className="hidden items-center justify-center gap-6 lg:gap-8 md:flex">
               {navItems.map((item) =>
@@ -117,7 +119,7 @@ export function BarbershopHero() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 ${
+                    className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 md:flex md:h-11 md:items-center ${
                       item.active ? "opacity-100" : "opacity-80"
                     }`}
                   >
@@ -130,7 +132,7 @@ export function BarbershopHero() {
                   <a
                     key={item.label}
                     href={item.href}
-                    className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 ${
+                    className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 md:flex md:h-11 md:items-center ${
                       item.active ? "opacity-100" : "opacity-80"
                     }`}
                   >
@@ -145,7 +147,7 @@ export function BarbershopHero() {
 
             <a
               href="#booking"
-              className="font-label hidden justify-self-end border border-[#d4af37] bg-white/0 px-5 py-3 text-center text-[14px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12 md:inline-flex"
+              className="font-label hidden h-11 items-center justify-self-end border border-[#d4af37] bg-white/0 px-5 py-0 text-center text-[14px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12 md:inline-flex md:justify-self-end"
             >
               Book Appointment
             </a>
