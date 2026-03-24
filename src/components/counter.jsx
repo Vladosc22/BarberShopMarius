@@ -107,11 +107,13 @@ function StatItem({ stat, animate }) {
             <div
                 style={{
                     color: "#ffffff",
-                    fontSize: "11px",
+                    fontSize: "clamp(10px, 2.5vw, 11px)",
                     fontWeight: "700",
-                    letterSpacing: "0.3em",
+                    letterSpacing: "0.22em",
                     textTransform: "uppercase",
                     fontFamily: "'Georgia', serif",
+                    textAlign: "center",
+                    maxWidth: "240px",
                 }}
             >
                 {stat.label}
@@ -140,12 +142,10 @@ export default function StatsSection() {
                 background: "#0a0a0a",
                 borderTop: "1px solid rgba(201,168,76,0.3)",
                 borderBottom: "1px solid rgba(201,168,76,0.3)",
-                display: "flex",
-                alignItems: "stretch",
-                justifyContent: "center",
                 width: "100%",
                 position: "relative",
                 overflow: "hidden",
+                padding: "clamp(18px, 4vw, 28px) clamp(14px, 4vw, 24px)",
             }}
         >
             {/* Subtle top/bottom gold lines */}
@@ -160,19 +160,28 @@ export default function StatsSection() {
                 background: "linear-gradient(90deg, transparent, #C9A84C, transparent)",
             }} />
 
-            {stats.map((stat, index) => (
-                <div key={stat.id} style={{ display: "flex", flex: 1 }}>
-                    <StatItem stat={stat} animate={animate} />
-                    {index < stats.length - 1 && (
-                        <div style={{
-                            width: "1px",
-                            background: "linear-gradient(180deg, transparent, rgba(201,168,76,0.4), transparent)",
-                            alignSelf: "stretch",
-                            margin: "20px 0",
-                        }} />
-                    )}
-                </div>
-            ))}
+            <div
+                style={{
+                    width: "100%",
+                    maxWidth: "1120px",
+                    margin: "0 auto",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                    gap: "12px",
+                }}
+            >
+                {stats.map((stat) => (
+                    <div
+                        key={stat.id}
+                        style={{
+                            border: "1px solid rgba(201,168,76,0.18)",
+                            background: "rgba(255,255,255,0.015)",
+                        }}
+                    >
+                        <StatItem stat={stat} animate={animate} />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
