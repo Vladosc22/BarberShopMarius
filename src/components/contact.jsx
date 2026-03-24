@@ -198,7 +198,7 @@ export default function ContactUs() {
                 fontFamily: "Georgia, serif",
                 textTransform: "uppercase",
             }}>
-                © Copyright WB Barbershop 2024
+                © Copyright WB Barbershop 2026
             </div>
         </div>
     );
