@@ -8,6 +8,8 @@ const services = [
         title: "TUNS & ARANJARE BARBĂ",
         description:
             "Tunsori precise adaptate formei feței tale, combinate cu modelarea expertă a bărbii pentru un aspect îngrijit și elegant.",
+        duration: "45 min",
+        price: "150 MDL",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
                 <path d="M20 10 L10 30 M20 10 L30 30 M12 24 L28 24" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -21,6 +23,8 @@ const services = [
         title: "Ras & tuns",
         description:
             "Un bărbierit tradițional cu briciul, combinat cu un tuns clasic — experiența supremă de îngrijire.",
+        duration: "50 min",
+        price: " 200 MDL",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
                 <path d="M10 15 L45 38" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
@@ -34,6 +38,8 @@ const services = [
         title: "TRATAMENT FACIAL & RAS",
         description:
             "Tratamente faciale de curățare profundă, combinate cu un bărbierit cu prosop fierbinte pentru a revitaliza, reface și întineri.",
+        duration: "60 min",
+        price: " 300 MDL",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
                 <path d="M15 28 Q10 22 14 16 Q20 8 30 10 Q40 8 46 16 Q50 22 45 28 Q42 38 30 44 Q18 38 15 28Z" stroke="#C9A84C" strokeWidth="1.5" strokeLinejoin="round"/>
@@ -46,6 +52,8 @@ const services = [
         title: "ZIUA CEA MARE",
         description:
             "Arată impecabil pentru nunți, evenimente speciale sau momente importante — pachetul nostru de îngrijire premium.",
+        duration: "75 min",
+        price: "450 MDL",
         icon: (
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
                 <path d="M12 30 Q16 24 22 26 Q26 28 30 26 Q34 24 38 26 Q44 28 48 30" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
@@ -173,7 +181,7 @@ export default function Services() {
                                 ? "rgba(201,168,76,0.06)"
                                 : "rgba(12,12,12,0.95)",
                             border: `1px solid ${hoveredId === service.id ? "rgba(201,168,76,0.6)" : "rgba(201,168,76,0.25)"}`,
-                            padding: "44px 36px",
+                            padding: "58px 36px 44px",
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "center",
@@ -187,6 +195,44 @@ export default function Services() {
                             overflow: "hidden",
                         }}
                     >
+                        <div
+                            style={{
+                                position: "absolute",
+                                top: "14px",
+                                left: "14px",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "6px",
+                                color: "#C9A84C",
+                                fontSize: "11px",
+                                letterSpacing: "0.08em",
+                                textTransform: "uppercase",
+                                zIndex: 2,
+                            }}
+                        >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="8.5" stroke="#C9A84C" strokeWidth="1.8" />
+                                <path d="M12 7.5v5l3.3 2" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round" />
+                            </svg>
+                            <span>{service.duration}</span>
+                        </div>
+
+                        <div
+                            style={{
+                                position: "absolute",
+                                top: "14px",
+                                right: "14px",
+                                color: "#C9A84C",
+                                fontSize: "12px",
+                                fontWeight: "700",
+                                letterSpacing: "0.08em",
+                                textTransform: "uppercase",
+                                zIndex: 2,
+                            }}
+                        >
+                            {service.price}
+                        </div>
+
                         {/* Corner accents */}
                         <div style={{
                             position: "absolute", top: 0, left: 0,
