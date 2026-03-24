@@ -1,6 +1,18 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
+
 export default function ContactUs() {
+    const prefersReducedMotion = useReducedMotion();
+    const fadeUp = {
+        hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 26 },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+        },
+    };
+
     const items = [
         {
             icon: (
@@ -65,7 +77,13 @@ export default function ContactUs() {
             <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }} />
 
             {/* Header */}
-            <div style={{ textAlign: "center", padding: "clamp(48px, 9vw, 72px) 20px clamp(36px, 7vw, 52px)" }}>
+            <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.25 }}
+                variants={fadeUp}
+                style={{ textAlign: "center", padding: "clamp(48px, 9vw, 72px) 20px clamp(36px, 7vw, 52px)" }}
+            >
                 <h2 style={{
                     color: "#ffffff",
                     fontSize: "clamp(28px, 7vw, 52px)",
@@ -88,7 +106,7 @@ export default function ContactUs() {
                 }}>
                     Fiecare detaliu contează atunci când vine vorba de stilul tău. Programează-ți vizita sau contactează-ne pentru orice întrebare — echipa noastră este pregătită să îți ofere o experiență rafinată, de la început până la final.
                 </p>
-            </div>
+            </motion.div>
 
             {/* 4 columns — icon / label / values, all centered */}
             <div style={{
@@ -100,8 +118,12 @@ export default function ContactUs() {
                 padding: "0 clamp(14px, 4vw, 40px) clamp(42px, 7vw, 64px)",
             }}>
                 {items.map((item, i) => (
-                    <div
+                    <motion.div
                         key={i}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.35 }}
+                        variants={fadeUp}
                         onClick={() => {
                             if (item.link) window.open(item.link, "_blank", "noopener,noreferrer");
                         }}
@@ -153,7 +175,7 @@ export default function ContactUs() {
                                 {line}
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 ))}
             </div>
 

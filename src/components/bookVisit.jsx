@@ -2,10 +2,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function CTABanner() {
-    const bookingUrl = "https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A";
+    const bookingUrl = "https://bookingwb.setmore.com/c8djwtkb24?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnI0Yt9O3UQhqpDvfuIPfhIOkbVnfh-ec_-W3W6ghK8V3sTkCH_KqbkBuhyzg_aem_WuU2ByFHYC3tUWdN60EzeA";
     const [isMobile, setIsMobile] = useState(false);
+    const prefersReducedMotion = useReducedMotion();
 
     useEffect(() => {
         const updateViewport = () => setIsMobile(window.innerWidth < 768);
@@ -13,6 +15,15 @@ export default function CTABanner() {
         window.addEventListener("resize", updateViewport);
         return () => window.removeEventListener("resize", updateViewport);
     }, []);
+
+    const fadeUp = {
+        hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 28 },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
+        },
+    };
 
     return (
         <div style={{
@@ -64,7 +75,12 @@ export default function CTABanner() {
             }} />
 
             {/* Content */}
-            <div style={{
+            <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+                style={{
                 position: "relative", zIndex: 4,
                 display: "flex", flexDirection: "column",
                 alignItems: "center", textAlign: "center",
@@ -72,7 +88,7 @@ export default function CTABanner() {
                 maxWidth: "720px",
             }}>
                 {/* Eyebrow */}
-                <p style={{
+                <motion.p variants={fadeUp} style={{
                     color: "#C9A84C",
                     fontSize: "11px",
                     letterSpacing: "0.45em",
@@ -82,10 +98,10 @@ export default function CTABanner() {
                     margin: "0 0 16px",
                 }}>
                     EȘTI GATA?
-                </p>
+                </motion.p>
 
                 {/* Headline */}
-                <h2 style={{
+                <motion.h2 variants={fadeUp} style={{
                     color: "#ffffff",
                     fontSize: "clamp(32px, 5vw, 54px)",
                     fontWeight: "800",
@@ -95,10 +111,10 @@ export default function CTABanner() {
                     lineHeight: 1.15,
                 }}>
                     Cel mai bun look al tău începe aici
-                </h2>
+                </motion.h2>
 
                 {/* Subtext */}
-                <p style={{
+                <motion.p variants={fadeUp} style={{
                     color: "rgba(220,210,190,0.7)",
                     fontSize: "clamp(13px, 3.6vw, 15px)",
                     fontFamily: "Georgia, serif",
@@ -108,10 +124,10 @@ export default function CTABanner() {
                     lineHeight: 1.6,
                 }}>
                     Vino direct sau sună înainte. Suntem pregătiți când ești și tu.
-                </p>
+                </motion.p>
 
                 {/* Buttons */}
-                <div style={{
+                <motion.div variants={fadeUp} style={{
                     display: "flex",
                     flexDirection: isMobile ? "column" : "row",
                     justifyContent: "center",
@@ -188,8 +204,8 @@ export default function CTABanner() {
                     >
                         +373 68 376 883
                     </button>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </div>
     );
 }
