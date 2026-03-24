@@ -14,13 +14,15 @@ export default function ContactUs() {
         },
         {
             icon: (
-                <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
-                    <rect x="4" y="8" width="24" height="16" rx="2" stroke="#C9A84C" strokeWidth="1.5"/>
-                    <path d="M4 10l12 8 12-8" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                    <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" stroke="#C9A84C" strokeWidth="1.5" />
+                    <circle cx="12" cy="12" r="4.2" stroke="#C9A84C" strokeWidth="1.5" />
+                    <circle cx="17.5" cy="6.7" r="1.1" fill="#C9A84C" />
                 </svg>
             ),
-            label: "Email",
-            lines: ["mariuscoritoru@gmail.com"],
+            label: "INSTAGRAM",
+            lines: ["@wb_barbershop_"],
+            link: "https://www.instagram.com/wb_barbershop_/",
         },
         {
             icon: (
@@ -98,7 +100,21 @@ export default function ContactUs() {
                 padding: "0 clamp(14px, 4vw, 40px) clamp(42px, 7vw, 64px)",
             }}>
                 {items.map((item, i) => (
-                    <div key={i} style={{
+                    <div
+                        key={i}
+                        onClick={() => {
+                            if (item.link) window.open(item.link, "_blank", "noopener,noreferrer");
+                        }}
+                        onKeyDown={(e) => {
+                            if (!item.link) return;
+                            if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                window.open(item.link, "_blank", "noopener,noreferrer");
+                            }
+                        }}
+                        role={item.link ? "button" : undefined}
+                        tabIndex={item.link ? 0 : -1}
+                        style={{
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
@@ -106,6 +122,7 @@ export default function ContactUs() {
                         padding: "20px 18px",
                         border: "1px solid rgba(201,168,76,0.12)",
                         minHeight: "170px",
+                        cursor: item.link ? "pointer" : "default",
                     }}>
                         {/* Icon */}
                         <div style={{ marginBottom: "14px" }}>{item.icon}</div>
