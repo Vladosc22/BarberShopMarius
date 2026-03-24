@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/vlados/Desktop/Programming/Front end/Webstorm/untitled2/src/app/layout\":[\"static/media/6c7b277d2518c12b-s.p.woff2\",\"static/media/e6099e249fd938cc-s.p.woff2\",\"static/media/e4af272ccee01ff0-s.p.woff2\",\"static/media/4c9affa5bc8f420e-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

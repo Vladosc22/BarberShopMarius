@@ -1,11 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Home", href: "#home", active: true },
   { label: "Services", href: "#services" },
-  { label: "Galerie", href: "#blog" },
+  { label: "Galerie", href: "/galerie#galerie-content" },
   { label: "Contact Us", href: "#contact" },
 ];
 
@@ -111,20 +112,35 @@ export function BarbershopHero() {
             </button>
 
             <nav className="hidden items-center justify-center gap-6 lg:gap-8 md:flex">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 ${
-                    item.active ? "opacity-100" : "opacity-80"
-                  }`}
-                >
-                  {item.label}
-                  {item.active ? (
-                    <span className="absolute -bottom-2 left-1/2 h-px w-8 -translate-x-1/2 bg-[#d4af37]" />
-                  ) : null}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.href.startsWith("/") ? (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 ${
+                      item.active ? "opacity-100" : "opacity-80"
+                    }`}
+                  >
+                    {item.label}
+                    {item.active ? (
+                      <span className="absolute -bottom-2 left-1/2 h-px w-8 -translate-x-1/2 bg-[#d4af37]" />
+                    ) : null}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 ${
+                      item.active ? "opacity-100" : "opacity-80"
+                    }`}
+                  >
+                    {item.label}
+                    {item.active ? (
+                      <span className="absolute -bottom-2 left-1/2 h-px w-8 -translate-x-1/2 bg-[#d4af37]" />
+                    ) : null}
+                  </a>
+                ),
+              )}
             </nav>
 
             <a
@@ -158,18 +174,31 @@ export function BarbershopHero() {
         </div>
 
         <nav className="flex flex-1 flex-col items-center justify-center gap-7 text-center">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              className={`font-ui text-2xl tracking-[0.18em] text-white transition hover:opacity-80 ${
-                item.active ? "text-[#d4af37]" : "opacity-90"
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            item.href.startsWith("/") ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className={`font-ui text-2xl tracking-[0.18em] text-white transition hover:opacity-80 ${
+                  item.active ? "text-[#d4af37]" : "opacity-90"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className={`font-ui text-2xl tracking-[0.18em] text-white transition hover:opacity-80 ${
+                  item.active ? "text-[#d4af37]" : "opacity-90"
+                }`}
+              >
+                {item.label}
+              </a>
+            ),
+          )}
           <a
             href="#booking"
             onClick={() => setMenuOpen(false)}
