@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const reviews = [
     { id: 1, name: "Alexandru Cotorobai", initials: "CA", text: "Experiență excepțională de la început până la sfârșit. Atenția la detalii și precizia tunsorii m-au făcut să arăt mai bine ca niciodată." },
@@ -18,8 +18,17 @@ export default function ClientReviews() {
     const animRef = useRef(null);
     const posRef = useRef(0);
     const pausedRef = useRef(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        const updateViewport = () => setIsMobile(window.innerWidth < 768);
+        updateViewport();
+        window.addEventListener("resize", updateViewport);
+        return () => window.removeEventListener("resize", updateViewport);
+    }, []);
+
+    useEffect(() => {
+        if (isMobile) return undefined;
         const CARD_WIDTH = 340;
         const GAP = 24;
         const UNIT = CARD_WIDTH + GAP;
@@ -39,12 +48,12 @@ export default function ClientReviews() {
 
         animRef.current = requestAnimationFrame(animate);
         return () => cancelAnimationFrame(animRef.current);
-    }, []);
+    }, [isMobile]);
 
     return (
         <div style={{
             width: "100%",
-            height: "516px",
+            minHeight: isMobile ? "auto" : "516px",
             background: "#0a0a0a",
             display: "flex",
             flexDirection: "column",
@@ -53,6 +62,7 @@ export default function ClientReviews() {
             overflow: "hidden",
             position: "relative",
             boxSizing: "border-box",
+            padding: isMobile ? "44px 0 40px" : "0",
         }}>
             {/* Ambient glow */}
             <div style={{
@@ -67,7 +77,7 @@ export default function ClientReviews() {
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }} />
 
             {/* Header */}
-            <div style={{ textAlign: "center", marginBottom: "36px", flexShrink: 0 }}>
+            <div style={{ textAlign: "center", marginBottom: isMobile ? "24px" : "36px", flexShrink: 0, padding: "0 16px" }}>
                 <p style={{
                     color: "#C9A84C", fontSize: "10px", letterSpacing: "0.4em",
                     textTransform: "uppercase", fontFamily: "Georgia, serif",
@@ -76,7 +86,7 @@ export default function ClientReviews() {
                     CE SPUN CLIENȚII DESPRE NOI
                 </p>
                 <h2 style={{
-                    color: "#ffffff", fontSize: "36px", fontWeight: "700",
+                    color: "#ffffff", fontSize: "clamp(26px, 7vw, 36px)", fontWeight: "700",
                     letterSpacing: "0.14em", textTransform: "uppercase",
                     margin: "0 0 14px", fontFamily: "Georgia, 'Times New Roman', serif",
                 }}>
@@ -89,35 +99,48 @@ export default function ClientReviews() {
             </div>
 
             {/* Left / right fade masks */}
-            <div style={{
-                position: "absolute", left: 0, top: 0, bottom: 0, width: "130px", zIndex: 2,
-                background: "linear-gradient(90deg, #0a0a0a 40%, transparent 100%)",
-                pointerEvents: "none",
-            }} />
-            <div style={{
-                position: "absolute", right: 0, top: 0, bottom: 0, width: "130px", zIndex: 2,
-                background: "linear-gradient(270deg, #0a0a0a 40%, transparent 100%)",
-                pointerEvents: "none",
-            }} />
+            {!isMobile && (
+                <div style={{
+                    position: "absolute", left: 0, top: 0, bottom: 0, width: "130px", zIndex: 2,
+                    background: "linear-gradient(90deg, #0a0a0a 40%, transparent 100%)",
+                    pointerEvents: "none",
+                }} />
+            )}
+            {!isMobile && (
+                <div style={{
+                    position: "absolute", right: 0, top: 0, bottom: 0, width: "130px", zIndex: 2,
+                    background: "linear-gradient(270deg, #0a0a0a 40%, transparent 100%)",
+                    pointerEvents: "none",
+                }} />
+            )}
 
             {/* Scrolling track */}
-            <div style={{ width: "100%", overflow: "hidden", flexShrink: 0 }}>
+            <div
+                style={{
+                    width: "100%",
+                    overflow: isMobile ? "auto" : "hidden",
+                    flexShrink: 0,
+                    WebkitOverflowScrolling: "touch",
+                    scrollbarWidth: "none",
+                    padding: isMobile ? "0 16px" : "0",
+                }}
+            >
                 <div
                     ref={trackRef}
                     style={{
                         display: "flex",
-                        gap: "24px",
+                        gap: isMobile ? "14px" : "24px",
                         willChange: "transform",
-                        /* no paddingLeft — removing it eliminates the right-side gap */
+                        scrollSnapType: isMobile ? "x mandatory" : "none",
                     }}
                 >
-                    {allReviews.map((review, index) => (
+                    {(isMobile ? reviews : allReviews).map((review, index) => (
                         <div
                             key={`${review.id}-${index}`}
                             onMouseEnter={() => { pausedRef.current = true; }}
                             onMouseLeave={() => { pausedRef.current = false; }}
                             style={{
-                                width: "340px",
+                                width: isMobile ? "min(84vw, 320px)" : "340px",
                                 flexShrink: 0,
                                 background: "rgba(255,255,255,0.018)",
                                 border: "1px solid rgba(201,168,76,0.18)",
@@ -127,6 +150,7 @@ export default function ClientReviews() {
                                 flexDirection: "column",
                                 transition: "border-color 0.3s ease, background 0.3s ease",
                                 cursor: "default",
+                                scrollSnapAlign: isMobile ? "start" : "none",
                             }}
                             onMouseOver={(e) => {
                                 e.currentTarget.style.borderColor = "rgba(201,168,76,0.48)";

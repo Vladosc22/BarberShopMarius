@@ -66,10 +66,18 @@ const services = [
 export default function Services() {
     const [hoveredId, setHoveredId] = useState(null);
     const [visible, setVisible] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => setVisible(true), 100);
         return () => clearTimeout(timer);
+    }, []);
+
+    useEffect(() => {
+        const updateViewport = () => setIsMobile(window.innerWidth < 768);
+        updateViewport();
+        window.addEventListener("resize", updateViewport);
+        return () => window.removeEventListener("resize", updateViewport);
     }, []);
 
     return (
@@ -82,7 +90,7 @@ export default function Services() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "60px 24px",
+                padding: "clamp(48px, 8vw, 72px) clamp(16px, 4vw, 24px)",
                 fontFamily: "'Georgia', 'Times New Roman', serif",
                 position: "relative",
                 overflow: "hidden",
@@ -165,8 +173,8 @@ export default function Services() {
             <div
                 style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(2, 1fr)",
-                    gap: "2px",
+                    gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
+                    gap: "10px",
                     maxWidth: "720px",
                     width: "100%",
                 }}
@@ -181,7 +189,7 @@ export default function Services() {
                                 ? "rgba(201,168,76,0.06)"
                                 : "rgba(12,12,12,0.95)",
                             border: `1px solid ${hoveredId === service.id ? "rgba(201,168,76,0.6)" : "rgba(201,168,76,0.25)"}`,
-                            padding: "58px 36px 44px",
+                            padding: "64px clamp(18px, 4vw, 36px) clamp(28px, 5vw, 44px)",
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "center",
@@ -204,7 +212,7 @@ export default function Services() {
                                 alignItems: "center",
                                 gap: "6px",
                                 color: "#C9A84C",
-                                fontSize: "11px",
+                                fontSize: "10px",
                                 letterSpacing: "0.08em",
                                 textTransform: "uppercase",
                                 zIndex: 2,
@@ -223,7 +231,7 @@ export default function Services() {
                                 top: "14px",
                                 right: "14px",
                                 color: "#C9A84C",
-                                fontSize: "12px",
+                                fontSize: "11px",
                                 fontWeight: "700",
                                 letterSpacing: "0.08em",
                                 textTransform: "uppercase",

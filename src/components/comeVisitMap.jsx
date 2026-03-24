@@ -49,7 +49,7 @@ export default function ComeVisit() {
             <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }} />
 
             {/* Header */}
-            <div style={{ textAlign: "center", padding: "56px 24px 40px" }}>
+            <div style={{ textAlign: "center", padding: "clamp(44px, 8vw, 56px) 20px clamp(28px, 6vw, 40px)" }}>
                 <p style={{
                     color: "#C9A84C", fontSize: "10px", letterSpacing: "0.45em",
                     textTransform: "uppercase", fontFamily: "Georgia, serif",
@@ -58,7 +58,7 @@ export default function ComeVisit() {
                     GĂSEȘTE-NE
                 </p>
                 <h2 style={{
-                    color: "#ffffff", fontSize: "clamp(32px, 5vw, 52px)",
+                    color: "#ffffff", fontSize: "clamp(28px, 7vw, 52px)",
                     fontWeight: "800", margin: 0,
                     fontFamily: "Georgia, 'Times New Roman', serif",
                     letterSpacing: "0.02em",
@@ -69,21 +69,21 @@ export default function ComeVisit() {
 
             {/* Main row */}
             <div style={{
-                display: "flex",
-                gap: "28px",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                gap: "clamp(14px, 3vw, 28px)",
                 maxWidth: "1200px",
                 margin: "0 auto",
-                padding: "0 40px 60px",
+                padding: "0 clamp(14px, 4vw, 40px) clamp(42px, 7vw, 60px)",
                 alignItems: "stretch",
             }}>
 
                 {/* MAP — 46% */}
                 <div style={{
-                    flex: "0 0 46%",
                     position: "relative",
                     overflow: "hidden",
                     border: "1px solid rgba(201,168,76,0.2)",
-                    minHeight: "340px",
+                    minHeight: "clamp(280px, 42vw, 420px)",
                 }}>
                     <iframe
                         title="WB Barber Location"
@@ -93,7 +93,7 @@ export default function ComeVisit() {
                         style={{
                             border: "none",
                             display: "block",
-                            minHeight: "340px",
+                            minHeight: "clamp(280px, 42vw, 420px)",
                             filter: "invert(90%) hue-rotate(180deg)",
                         }}
                         allowFullScreen
@@ -105,6 +105,8 @@ export default function ComeVisit() {
                     <div style={{
                         position: "absolute", bottom: 0, left: 0, right: 0,
                         display: "flex", alignItems: "center", justifyContent: "space-between",
+                        flexWrap: "wrap",
+                        rowGap: "8px",
                         background: "rgba(10,10,10,0.92)",
                         padding: "12px 16px",
                         borderTop: "1px solid rgba(201,168,76,0.2)",
@@ -124,7 +126,7 @@ export default function ComeVisit() {
                             rel="noopener noreferrer"
                             style={{
                                 background: "#C9A84C", color: "#0a0a0a",
-                                padding: "9px 20px", fontSize: "10px", fontWeight: "700",
+                                padding: "9px 14px", fontSize: "10px", fontWeight: "700",
                                 letterSpacing: "0.22em", textTransform: "uppercase",
                                 fontFamily: "Georgia, serif", textDecoration: "none",
                                 display: "flex", alignItems: "center", gap: "8px",
@@ -143,7 +145,6 @@ export default function ComeVisit() {
 
                 {/* RIGHT PANEL — 54% */}
                 <div style={{
-                    flex: "0 0 calc(54% - 28px)",
                     display: "flex",
                     flexDirection: "column",
                     gap: "14px",
@@ -152,7 +153,7 @@ export default function ComeVisit() {
                     {/* 2×2 cards */}
                     <div style={{
                         display: "grid",
-                        gridTemplateColumns: "1fr 1fr",
+                        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
                         gap: "14px",
                         flex: 1,
                     }}>
@@ -180,6 +181,7 @@ export default function ComeVisit() {
                                         color: card.highlight ? "#C9A84C" : "rgba(220,210,190,0.85)",
                                         fontSize: "14px", fontFamily: "Georgia, serif",
                                         fontStyle: "italic", lineHeight: "1.55",
+                                        wordBreak: "break-word",
                                     }}>
                                         {Array.isArray(card.value)
                                             ? card.value.map((line) => (
@@ -193,8 +195,9 @@ export default function ComeVisit() {
                     </div>
 
                     {/* Buttons row */}
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "14px" }}>
                         <button
+                            type="button"
                             style={{
                                 background: "#C9A84C", border: "none",
                                 color: "#0a0a0a", padding: "18px 20px",
@@ -203,6 +206,8 @@ export default function ComeVisit() {
                                 fontFamily: "Georgia, serif", cursor: "pointer",
                                 display: "flex", alignItems: "center", justifyContent: "center",
                                 gap: "10px", transition: "background 0.3s ease",
+                                textAlign: "center",
+                                lineHeight: 1.5,
                             }}
                             onMouseEnter={(e) => e.currentTarget.style.background = "#b8932e"}
                             onMouseLeave={(e) => e.currentTarget.style.background = "#C9A84C"}
@@ -224,6 +229,8 @@ export default function ComeVisit() {
                                 fontFamily: "Georgia, serif", cursor: "pointer",
                                 display: "flex", alignItems: "center", justifyContent: "center",
                                 gap: "10px", transition: "border-color 0.3s ease, background 0.3s ease",
+                                textAlign: "center",
+                                lineHeight: 1.5,
                             }}
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.borderColor = "#C9A84C";

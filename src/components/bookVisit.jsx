@@ -7,7 +7,7 @@ export default function CTABanner() {
     return (
         <div style={{
             width: "100%",
-            minHeight: "380px",
+            minHeight: "clamp(340px, 48vw, 420px)",
             position: "relative",
             display: "flex",
             alignItems: "center",
@@ -58,7 +58,7 @@ export default function CTABanner() {
                 position: "relative", zIndex: 4,
                 display: "flex", flexDirection: "column",
                 alignItems: "center", textAlign: "center",
-                padding: "60px 24px",
+                padding: "clamp(44px, 8vw, 60px) clamp(16px, 4vw, 24px)",
                 maxWidth: "720px",
             }}>
                 {/* Eyebrow */}
@@ -90,7 +90,7 @@ export default function CTABanner() {
                 {/* Subtext */}
                 <p style={{
                     color: "rgba(220,210,190,0.7)",
-                    fontSize: "15px",
+                    fontSize: "clamp(13px, 3.6vw, 15px)",
                     fontFamily: "Georgia, serif",
                     fontStyle: "italic",
                     letterSpacing: "0.04em",
@@ -109,7 +109,7 @@ export default function CTABanner() {
                             background: "#C9A84C",
                             border: "none",
                             color: "#0a0a0a",
-                            padding: "16px 36px",
+                            padding: "16px 26px",
                             fontSize: "12px",
                             fontWeight: "700",
                             letterSpacing: "0.28em",
@@ -120,6 +120,8 @@ export default function CTABanner() {
                             alignItems: "center",
                             gap: "10px",
                             transition: "background 0.3s ease, transform 0.2s ease",
+                            width: "min(100%, 330px)",
+                            justifyContent: "center",
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.background = "#b8932e";
@@ -144,13 +146,14 @@ export default function CTABanner() {
                             background: "transparent",
                             border: "1px solid rgba(255,255,255,0.45)",
                             color: "#ffffff",
-                            padding: "16px 36px",
+                            padding: "16px 26px",
                             fontSize: "12px",
                             fontWeight: "600",
                             letterSpacing: "0.18em",
                             fontFamily: "Georgia, serif",
                             cursor: "pointer",
                             transition: "border-color 0.3s ease, color 0.3s ease, transform 0.2s ease",
+                            width: "min(100%, 330px)",
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.borderColor = "#C9A84C";

@@ -63,10 +63,10 @@ export default function ContactUs() {
             <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }} />
 
             {/* Header */}
-            <div style={{ textAlign: "center", padding: "72px 24px 52px" }}>
+            <div style={{ textAlign: "center", padding: "clamp(48px, 9vw, 72px) 20px clamp(36px, 7vw, 52px)" }}>
                 <h2 style={{
                     color: "#ffffff",
-                    fontSize: "clamp(32px, 5vw, 52px)",
+                    fontSize: "clamp(28px, 7vw, 52px)",
                     fontWeight: "700",
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
@@ -77,7 +77,7 @@ export default function ContactUs() {
                 </h2>
                 <p style={{
                     color: "rgba(220,210,190,0.6)",
-                    fontSize: "14px",
+                    fontSize: "clamp(13px, 3.6vw, 14px)",
                     lineHeight: "1.8",
                     fontFamily: "Georgia, serif",
                     fontStyle: "italic",
@@ -90,22 +90,22 @@ export default function ContactUs() {
 
             {/* 4 columns — icon / label / values, all centered */}
             <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "flex-start",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                gap: "14px",
                 maxWidth: "1100px",
                 margin: "0 auto",
-                padding: "0 40px 64px",
+                padding: "0 clamp(14px, 4vw, 40px) clamp(42px, 7vw, 64px)",
             }}>
                 {items.map((item, i) => (
                     <div key={i} style={{
-                        flex: 1,
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
                         textAlign: "center",
-                        padding: "0 24px",
-                        borderRight: i < items.length - 1 ? "1px solid rgba(201,168,76,0.12)" : "none",
+                        padding: "20px 18px",
+                        border: "1px solid rgba(201,168,76,0.12)",
+                        minHeight: "170px",
                     }}>
                         {/* Icon */}
                         <div style={{ marginBottom: "14px" }}>{item.icon}</div>
@@ -131,6 +131,7 @@ export default function ContactUs() {
                                 fontFamily: "Georgia, serif",
                                 fontStyle: "italic",
                                 lineHeight: "1.9",
+                                wordBreak: "break-word",
                             }}>
                                 {line}
                             </div>
@@ -144,6 +145,7 @@ export default function ContactUs() {
                 height: "1px",
                 maxWidth: "1100px",
                 margin: "0 auto",
+                width: "calc(100% - 28px)",
                 background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent)",
             }} />
 
