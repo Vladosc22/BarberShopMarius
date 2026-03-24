@@ -9,6 +9,7 @@ const navItems = [
   { label: "Services", href: "/#services" },
   { label: "Galerie", href: "/galerie#galerie-content", active: true },
   { label: "Contact Us", href: "/#contact" },
+  { label: "Book Appointment", href: "/#booking", cta: true },
 ];
 
 function HamburgerIcon({ open = false }) {
@@ -168,16 +169,22 @@ export default function GaleriePage() {
               <HamburgerIcon open={menuOpen} />
             </button>
 
-            <nav className="hidden items-center justify-center gap-6 md:flex lg:gap-8">
+            <nav className="relative hidden w-full items-center justify-center gap-6 md:flex lg:gap-8">
               {navItems.map((item) =>
                   item.href.startsWith("/") ? (
                       <Link
                           key={item.label}
                           href={item.href}
-                          className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 ${item.active ? "opacity-100" : "opacity-80"}`}
+                          className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 md:flex md:h-11 md:items-center ${
+                            item.cta
+                              ? "absolute right-0 border border-[#d4af37] px-5 text-center font-semibold uppercase tracking-[0.22em] hover:bg-[#d4af37]/12"
+                              : item.active
+                                ? "opacity-100"
+                                : "opacity-80"
+                          }`}
                       >
                         {item.label}
-                        {item.active && (
+                        {item.active && !item.cta && (
                             <span className="absolute -bottom-2 left-1/2 h-px w-8 -translate-x-1/2 bg-[#d4af37]" />
                         )}
                       </Link>
@@ -185,10 +192,16 @@ export default function GaleriePage() {
                       <a
                           key={item.label}
                           href={item.href}
-                          className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 ${item.active ? "opacity-100" : "opacity-80"}`}
+                          className={`group relative font-ui text-[14px] font-medium tracking-[0.18em] text-white transition hover:opacity-80 md:flex md:h-11 md:items-center ${
+                            item.cta
+                              ? "absolute right-0 border border-[#d4af37] px-5 text-center font-semibold uppercase tracking-[0.22em] hover:bg-[#d4af37]/12"
+                              : item.active
+                                ? "opacity-100"
+                                : "opacity-80"
+                          }`}
                       >
                         {item.label}
-                        {item.active && (
+                        {item.active && !item.cta && (
                             <span className="absolute -bottom-2 left-1/2 h-px w-8 -translate-x-1/2 bg-[#d4af37]" />
                         )}
                       </a>
@@ -196,12 +209,6 @@ export default function GaleriePage() {
               )}
             </nav>
 
-            <a
-                href="#booking"
-                className="font-label hidden justify-self-end border border-[#d4af37] bg-white/0 px-5 py-3 text-center text-[14px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12 md:inline-flex"
-            >
-              Book Appointment
-            </a>
           </header>
         </div>
 
@@ -244,7 +251,7 @@ export default function GaleriePage() {
                 )
             )}
             <a
-                href="#booking"
+                href="/#booking"
                 onClick={() => setMenuOpen(false)}
                 className="font-label mt-4 inline-flex border border-[#d4af37] px-5 py-3 text-sm uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12"
             >
@@ -302,12 +309,6 @@ export default function GaleriePage() {
                   className="font-label inline-flex items-center justify-center rounded-[10px] bg-[#d4af37] px-6 py-3.5 text-[15px] font-medium text-[#15110f] transition hover:brightness-110"
               >
                 View Gallery
-              </a>
-              <a
-                  href="#booking"
-                  className="font-label inline-flex items-center justify-center rounded-[10px] border border-[#d4af37]/50 bg-[#2a1f1a]/80 px-6 py-3.5 text-[15px] font-medium text-white transition hover:border-[#d4af37] hover:bg-[#342620]"
-              >
-                Book Appointment
               </a>
             </div>
           </div>
