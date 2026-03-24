@@ -86,8 +86,8 @@ export default function ComeVisit() {
                     minHeight: "340px",
                 }}>
                     <iframe
-                        title="Ceban Barber Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2720.123456789!2d28.8357!3d47.0245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3a4b123abc%3A0x1234567890abcdef!2sCeban%20Barber!5e0!3m2!1sen!2smd!4v1234567890"
+                        title="WB Barber Location"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d734.8121975619716!2d28.864435345981775!3d46.908316022607124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1774370078193!5m2!1sen!2s"
                         width="100%"
                         height="100%"
                         style={{
@@ -119,7 +119,7 @@ export default function ComeVisit() {
               </span>
                         </div>
                         <a
-                            href="https://maps.google.com/?q=Ceban+Barber+Chisinau"
+                            href="https://maps.app.goo.gl/gQ8V4gp7ayDRdFGSA"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
