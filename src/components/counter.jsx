@@ -36,14 +36,9 @@ const stats = [
         value: 23,
         label: "tratamente & proceduri faciale",
         icon: (
-            <svg viewBox="0 0 60 56" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="52">
-                <rect x="6" y="22" width="48" height="30" rx="1" stroke="#C9A84C" strokeWidth="1.8"/>
-                <path d="M6 22 L10 8 H50 L54 22" stroke="#C9A84C" strokeWidth="1.8" strokeLinejoin="round"/>
-                <rect x="22" y="34" width="16" height="18" rx="1" stroke="#C9A84C" strokeWidth="1.5"/>
-                <rect x="10" y="28" width="10" height="10" rx="1" stroke="#C9A84C" strokeWidth="1.5"/>
-                <rect x="40" y="28" width="10" height="10" rx="1" stroke="#C9A84C" strokeWidth="1.5"/>
-                <line x1="6" y1="22" x2="54" y2="22" stroke="#C9A84C" strokeWidth="1.8"/>
-                <line x1="3" y1="52" x2="57" y2="52" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round"/>
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+                <path d="M15 28 Q10 22 14 16 Q20 8 30 10 Q40 8 46 16 Q50 22 45 28 Q42 38 30 44 Q18 38 15 28Z" stroke="#C9A84C" strokeWidth="1.5" strokeLinejoin="round"/>
+                <path d="M22 30 Q26 34 30 34 Q34 34 38 30" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
         ),
     },
