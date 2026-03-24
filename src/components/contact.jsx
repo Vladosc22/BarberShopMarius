@@ -44,7 +44,7 @@ export default function ContactUs() {
     ];
 
     return (
-        <div style={{
+        <div id="contact" style={{
             width: "100%",
             background: "#0a0a0a",
             boxSizing: "border-box",

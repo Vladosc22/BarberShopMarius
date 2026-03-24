@@ -66,6 +66,7 @@ export default function Services() {
 
     return (
         <div
+            id="services"
             style={{
                 minHeight: "100vh",
                 background: "#0a0a0a",
