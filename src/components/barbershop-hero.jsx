@@ -177,30 +177,30 @@ export function BarbershopHero() {
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col items-center justify-center gap-7 text-center">
+        <nav className="flex flex-1 flex-col items-center justify-center gap-6 text-center">
           {navItems.map((item) =>
             item.href.startsWith("/") ? (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className={`font-ui text-2xl tracking-[0.18em] text-white transition hover:opacity-80 ${
+                className={`font-ui text-[clamp(1.15rem,5.6vw,1.5rem)] tracking-[0.12em] text-white transition hover:opacity-80 ${
                   item.active ? "text-[#d4af37]" : "opacity-90"
                 }`}
               >
                 {item.label}
               </Link>
             ) : (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className={`font-ui text-2xl tracking-[0.18em] text-white transition hover:opacity-80 ${
-                  item.active ? "text-[#d4af37]" : "opacity-90"
-                }`}
-              >
-                {item.label}
-              </a>
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`font-ui text-[clamp(1.15rem,5.6vw,1.5rem)] tracking-[0.12em] text-white transition hover:opacity-80 ${
+                    item.active ? "text-[#d4af37]" : "opacity-90"
+                  }`}
+                >
+                  {item.label}
+                </a>
             ),
           )}
           <a
@@ -229,7 +229,7 @@ export function BarbershopHero() {
             <span className="h-px w-6 bg-[#f2a0ba]" />
           </div>
 
-          <h1 className="font-display max-w-[10ch] text-[clamp(3.75rem,10vw,7.5rem)] uppercase leading-[0.95] tracking-[0.08em] text-white">
+          <h1 className="font-display max-w-[10ch] text-[clamp(2.9rem,10vw,7.5rem)] uppercase leading-[0.95] tracking-[0.08em] text-white">
             WB Barbershop
           </h1>
 
@@ -255,21 +255,21 @@ export function BarbershopHero() {
             </div>
           </div>
 
-          <p className="font-body mt-5 max-w-[620px] text-[16px] leading-7 text-white/70 md:mt-6 md:text-[18px]">
+          <p className="mt-5 max-w-[620px] text-[14px] leading-[1.8] text-white/60 md:mt-6 md:text-[14px]" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
             Tunsori clasice, stil modern și o experiență de frizerie atemporală.          </p>
 
-          <div id="booking" className="mt-5 flex flex-col gap-3 sm:flex-row md:mt-7">
+          <div id="booking" className="mt-5 flex w-full max-w-[560px] flex-col items-center justify-center gap-3 sm:flex-row md:mt-7">
             <a
               href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-label inline-flex items-center justify-center rounded-[10px] bg-[#d4af37] px-6 py-3.5 text-[16px] font-medium text-[#15110f] transition hover:brightness-110"
+              className="font-label inline-flex w-full items-center justify-center rounded-[10px] bg-[#d4af37] px-6 py-3.5 text-[16px] font-medium text-[#15110f] transition hover:brightness-110 sm:w-auto"
             >
               Programează-te
             </a>
             <a
               href="#services"
-              className="font-label inline-flex items-center justify-center rounded-[10px] border border-[#d4af37]/50 bg-[#2a1f1a]/80 px-6 py-3.5 text-[16px] font-medium text-white transition hover:border-[#d4af37] hover:bg-[#342620]"
+              className="font-label inline-flex w-full items-center justify-center rounded-[10px] border border-[#d4af37]/50 bg-[#2a1f1a]/80 px-6 py-3.5 text-[16px] font-medium text-white transition hover:border-[#d4af37] hover:bg-[#342620] sm:w-auto"
             >
               Explorează Serviciile
             </a>

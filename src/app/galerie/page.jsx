@@ -255,7 +255,7 @@ export default function GaleriePage() {
                 rel="noopener noreferrer"
                 className="font-label hidden h-11 items-center justify-self-end border border-[#d4af37] bg-white/0 px-5 py-0 text-center text-[14px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12 md:inline-flex md:justify-self-end"
             >
-              Progeramează-te
+              Programează-te
             </a>
 
           </header>
@@ -284,7 +284,7 @@ export default function GaleriePage() {
                         key={item.label}
                         href={item.href}
                         onClick={() => setMenuOpen(false)}
-                        className={`font-ui text-2xl tracking-[0.18em] text-white transition hover:opacity-80 ${item.active ? "text-[#d4af37]" : "opacity-90"}`}
+                        className={`font-ui text-[clamp(1.15rem,5.6vw,1.5rem)] tracking-[0.12em] text-white transition hover:opacity-80 ${item.active ? "text-[#d4af37]" : "opacity-90"}`}
                     >
                       {item.label}
                     </Link>
@@ -293,18 +293,20 @@ export default function GaleriePage() {
                         key={item.label}
                         href={item.href}
                         onClick={() => setMenuOpen(false)}
-                        className={`font-ui text-2xl tracking-[0.18em] text-white transition hover:opacity-80 ${item.active ? "text-[#d4af37]" : "opacity-90"}`}
+                        className={`font-ui text-[clamp(1.15rem,5.6vw,1.5rem)] tracking-[0.12em] text-white transition hover:opacity-80 ${item.active ? "text-[#d4af37]" : "opacity-90"}`}
                     >
                       {item.label}
                     </a>
                 )
             )}
             <a
-                href="/#booking"
+                href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="font-label mt-4 inline-flex border border-[#d4af37] px-5 py-3 text-sm uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12"
             >
-              Book Appointment
+              Programează-te
             </a>
           </nav>
         </div>
@@ -347,7 +349,7 @@ export default function GaleriePage() {
               <div className="absolute bottom-0 left-1/2 h-5 w-px -translate-x-1/2 translate-y-1/2 bg-[#d4af37]/70" />
               <div className="absolute left-0 top-1/2 h-px w-5 -translate-x-1/2 -translate-y-1/2 bg-[#d4af37]/70" />
               <div className="absolute right-0 top-1/2 h-px w-5 translate-x-1/2 -translate-y-1/2 bg-[#d4af37]/70" />
-              <p className="font-body relative text-[15px] leading-7 text-white/65 md:text-[16px]">
+              <p className="relative text-[14px] leading-[1.8] text-white/60 md:text-[14px]" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
                 Tunsori atent realizate, stilizare a bărbii și rezultate premium de îngrijire oferite în salonul nostru.              </p>
             </div>
 

@@ -32,6 +32,13 @@ a {
   text-decoration: none;
 }
 
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+}
+
 .font-ui {
   font-family: var(--font-manrope), sans-serif;
 }
