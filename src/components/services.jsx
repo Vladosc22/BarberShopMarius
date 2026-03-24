@@ -128,8 +128,8 @@ export default function Services() {
                     textAlign: "center",
                     marginBottom: "56px",
                     opacity: visible ? 1 : 0,
-                    transform: visible ? "translateY(0)" : "translateY(20px)",
-                    transition: "opacity 0.8s ease, transform 0.8s ease",
+                    transform: visible ? "translateY(0)" : "translateY(34px)",
+                    transition: "opacity 1s ease, transform 1s ease",
                 }}
             >
                 <p
@@ -197,8 +197,8 @@ export default function Services() {
                             cursor: "pointer",
                             transition: "all 0.35s ease",
                             opacity: visible ? 1 : 0,
-                            transform: visible ? "translateY(0)" : "translateY(30px)",
-                            transitionDelay: `${0.15 + index * 0.1}s`,
+                            transform: visible ? "translateY(0)" : "translateY(46px)",
+                            transitionDelay: `${0.2 + index * 0.12}s`,
                             position: "relative",
                             overflow: "hidden",
                         }}
@@ -308,12 +308,12 @@ export default function Services() {
                 style={{
                     marginTop: "48px",
                     opacity: visible ? 1 : 0,
-                    transform: visible ? "translateY(0)" : "translateY(20px)",
-                    transition: "opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s",
+                    transform: visible ? "translateY(0)" : "translateY(28px)",
+                    transition: "opacity 1s ease 0.7s, transform 1s ease 0.7s",
                 }}
             >
                 <a
-                    href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
+                    href="https://bookingwb.setmore.com/c8djwtkb24?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnI0Yt9O3UQhqpDvfuIPfhIOkbVnfh-ec_-W3W6ghK8V3sTkCH_KqbkBuhyzg_aem_WuU2ByFHYC3tUWdN60EzeA"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{

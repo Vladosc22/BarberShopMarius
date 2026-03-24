@@ -300,7 +300,7 @@ export default function GaleriePage() {
                 )
             )}
             <a
-                href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
+                href="https://bookingwb.setmore.com/c8djwtkb24?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnI0Yt9O3UQhqpDvfuIPfhIOkbVnfh-ec_-W3W6ghK8V3sTkCH_KqbkBuhyzg_aem_WuU2ByFHYC3tUWdN60EzeA"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}

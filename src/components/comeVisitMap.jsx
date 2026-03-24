@@ -1,6 +1,18 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
+
 export default function ComeVisit() {
+    const prefersReducedMotion = useReducedMotion();
+    const fadeUp = {
+        hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 28 },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
+        },
+    };
+
     const cards = [
         {
             icon: <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="13" r="5" stroke="#C9A84C" strokeWidth="1.8"/><path d="M16 3C10.477 3 6 7.477 6 13c0 7 10 16 10 16s10-9 10-16c0-5.523-4.477-10-10-10z" stroke="#C9A84C" strokeWidth="1.8"/></svg>,
@@ -56,7 +68,13 @@ export default function ComeVisit() {
             <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }} />
 
             {/* Header */}
-            <div style={{ textAlign: "center", padding: "clamp(44px, 8vw, 56px) 20px clamp(28px, 6vw, 40px)" }}>
+            <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.25 }}
+                variants={fadeUp}
+                style={{ textAlign: "center", padding: "clamp(44px, 8vw, 56px) 20px clamp(28px, 6vw, 40px)" }}
+            >
                 <p style={{
                     color: "#C9A84C", fontSize: "10px", letterSpacing: "0.45em",
                     textTransform: "uppercase", fontFamily: "Georgia, serif",
@@ -72,7 +90,7 @@ export default function ComeVisit() {
                 }}>
                     Vino să ne vizitezi
                 </h2>
-            </div>
+            </motion.div>
 
             {/* Main row */}
             <div style={{
@@ -86,7 +104,12 @@ export default function ComeVisit() {
             }}>
 
                 {/* MAP — 46% */}
-                <div style={{
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={fadeUp}
+                    style={{
                     position: "relative",
                     overflow: "hidden",
                     border: "1px solid rgba(201,168,76,0.2)",
@@ -148,7 +171,7 @@ export default function ComeVisit() {
                             </svg>
                         </a>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* RIGHT PANEL — 54% */}
                 <div style={{
@@ -165,8 +188,12 @@ export default function ComeVisit() {
                         flex: 1,
                     }}>
                         {cards.map((card, i) => (
-                            <div
+                            <motion.div
                                 key={i}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={{ once: true, amount: 0.35 }}
+                                variants={fadeUp}
                                 onClick={() => {
                                     if (card.link) window.open(card.link, "_blank", "noopener,noreferrer");
                                 }}
@@ -212,12 +239,18 @@ export default function ComeVisit() {
                                             : card.value}
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
                     {/* Buttons row */}
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "14px" }}>
+                    <motion.div
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.35 }}
+                        variants={fadeUp}
+                        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "14px" }}
+                    >
                         <button
                             type="button"
                             style={{
@@ -271,7 +304,7 @@ export default function ComeVisit() {
                             </svg>
                             Sună acum
                         </button>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
