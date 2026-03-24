@@ -4,26 +4,27 @@ export default function ComeVisit() {
     const cards = [
         {
             icon: <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="13" r="5" stroke="#C9A84C" strokeWidth="1.8"/><path d="M16 3C10.477 3 6 7.477 6 13c0 7 10 16 10 16s10-9 10-16c0-5.523-4.477-10-10-10z" stroke="#C9A84C" strokeWidth="1.8"/></svg>,
-            label: "ADDRESS",
-            value: "Str. Ion Doncev 2, Chișinău, Moldova",
+            label: "ADRESA",
+            value: "Bacioi str sfantul Mihail 6, Chișinău, Moldova",
             highlight: false,
         },
         {
             icon: <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M6 5h5l2 5-2.5 2.5c1.5 3 4 5.5 7 7L20 17l5 2v5c0 1.1-.9 2-2 2C10.4 26 6 11.6 6 7c0-1.1.9-2 2-2z" stroke="#C9A84C" strokeWidth="1.8" strokeLinejoin="round"/></svg>,
-            label: "PHONE",
-            value: "+373 691 50 348",
+            label: "TELEFON",
+            value: "+373 68 376 883",
             highlight: false,
         },
         {
             icon: <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="16" rx="2" stroke="#C9A84C" strokeWidth="1.8"/><path d="M4 10l12 8 12-8" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round"/></svg>,
             label: "EMAIL",
-            value: "hello@cebanbarber.com",
+            value: "mariuscoritoru@gmail.com",
             highlight: true,
         },
         {
             icon: <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="#C9A84C" strokeWidth="1.8"/><path d="M16 9v7l4 4" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-            label: "TODAY",
-            value: "Mon – Fri: 9 AM – 7 PM",
+            label: "AZI",
+            value: ["Luni - Vineri: 9 - 19",
+                "Sâmbătă - Duminică: 10 - 18"],
             highlight: false,
         },
     ];
@@ -54,7 +55,7 @@ export default function ComeVisit() {
                     textTransform: "uppercase", fontFamily: "Georgia, serif",
                     fontStyle: "italic", margin: "0 0 10px",
                 }}>
-                    Find Us
+                    GĂSEȘTE-NE
                 </p>
                 <h2 style={{
                     color: "#ffffff", fontSize: "clamp(32px, 5vw, 52px)",
@@ -62,7 +63,7 @@ export default function ComeVisit() {
                     fontFamily: "Georgia, 'Times New Roman', serif",
                     letterSpacing: "0.02em",
                 }}>
-                    Come Visit
+                    Vino să ne vizitezi
                 </h2>
             </div>
 
@@ -132,7 +133,7 @@ export default function ComeVisit() {
                             onMouseEnter={(e) => e.currentTarget.style.background = "#b8932e"}
                             onMouseLeave={(e) => e.currentTarget.style.background = "#C9A84C"}
                         >
-                            Open in Maps
+                            Deschide în Hărți
                             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                                 <path d="M1 7h12M8 2l5 5-5 5" stroke="#0a0a0a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
@@ -180,7 +181,11 @@ export default function ComeVisit() {
                                         fontSize: "14px", fontFamily: "Georgia, serif",
                                         fontStyle: "italic", lineHeight: "1.55",
                                     }}>
-                                        {card.value}
+                                        {Array.isArray(card.value)
+                                            ? card.value.map((line) => (
+                                                <div key={line}>{line}</div>
+                                            ))
+                                            : card.value}
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +207,7 @@ export default function ComeVisit() {
                             onMouseEnter={(e) => e.currentTarget.style.background = "#b8932e"}
                             onMouseLeave={(e) => e.currentTarget.style.background = "#C9A84C"}
                         >
-                            Full Contact Info
+                            Informații complete de contact
                             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                                 <path d="M1 7h12M8 2l5 5-5 5" stroke="#0a0a0a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
@@ -231,7 +236,7 @@ export default function ComeVisit() {
                             <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
                                 <path d="M6 5h5l2 5-2.5 2.5c1.5 3 4 5.5 7 7L20 17l5 2v5c0 1.1-.9 2-2 2C10.4 26 6 11.6 6 7c0-1.1.9-2 2-2z" stroke="#C9A84C" strokeWidth="2" strokeLinejoin="round"/>
                             </svg>
-                            Call Now
+                            Sună acum
                         </button>
                     </div>
                 </div>

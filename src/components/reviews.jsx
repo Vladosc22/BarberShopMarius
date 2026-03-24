@@ -3,12 +3,12 @@
 import { useEffect, useRef } from "react";
 
 const reviews = [
-    { id: 1, name: "Glen Sparkle", location: "Miami", initials: "GS", text: "Exceptional experience from start to finish. The attention to detail and precision of the cut left me looking sharper than ever." },
-    { id: 2, name: "Michael Richards", location: "California", initials: "MR", text: "The hot-towel shave was an absolute revelation. Old-school craft meets modern comfort — I won't go anywhere else." },
-    { id: 3, name: "John Hood", location: "New York", initials: "JH", text: "Walked in looking rough, walked out looking like a new man. The barbers here truly understand their craft." },
-    { id: 4, name: "David Caruso", location: "Chicago", initials: "DC", text: "Booked the Big Day package for my wedding. Every groomsman was blown away. Couldn't have asked for better service." },
-    { id: 5, name: "Marcus Bell", location: "Houston", initials: "MB", text: "The atmosphere alone is worth the visit — dark, refined, no distractions. Pure focus on making you look your best." },
-    { id: 6, name: "James Holden", location: "Boston", initials: "JH2", text: "I've been to barbershops all over the country. This is genuinely the best. The facial & shave combo is unmatched." },
+    { id: 1, name: "Alexandru Cotorobai", initials: "CA", text: "Experiență excepțională de la început până la sfârșit. Atenția la detalii și precizia tunsorii m-au făcut să arăt mai bine ca niciodată." },
+    { id: 2, name: "Vladislav Chiochiu",  initials: "CV", text: "Bărbieritul cu prosop fierbinte a fost o adevărată revelație. Măiestria clasică se îmbină cu confortul modern — nu voi mai merge în altă parte." },
+    { id: 3, name: "Alexandru Clocicov",  initials: "AC", text: "Am intrat arătând neîngrijit, am ieșit ca un om nou. Frizerii de aici își stăpânesc cu adevărat meseria." },
+    { id: 4, name: "David Moraru",  initials: "DM", text: "Am rezervat pachetul „Ziua cea Mare” pentru nunta mea. Fiecare cavaler de onoare a fost impresionat. Nu aș fi putut cere un serviciu mai bun." },
+    { id: 5, name: "Marius Chiperi",  initials: "MC", text: "Atmosfera în sine merită vizita — întunecată, rafinată, fără distrageri. Accentul este pus exclusiv pe a te face să arăți cât mai bine." },
+    { id: 6, name: "Victor Nagherneac",  initials: "VN", text: "Am fost la frizerii în toată țara. Aceasta este cu adevărat cea mai bună. Combinația de tratament facial și bărbierit este de neegalat." },
 ];
 
 const allReviews = [...reviews, ...reviews];
@@ -73,14 +73,14 @@ export default function ClientReviews() {
                     textTransform: "uppercase", fontFamily: "Georgia, serif",
                     fontStyle: "italic", margin: "0 0 8px",
                 }}>
-                    What People Say About Us
+                    CE SPUN CLIENȚII DESPRE NOI
                 </p>
                 <h2 style={{
                     color: "#ffffff", fontSize: "36px", fontWeight: "700",
                     letterSpacing: "0.14em", textTransform: "uppercase",
                     margin: "0 0 14px", fontFamily: "Georgia, 'Times New Roman', serif",
                 }}>
-                    Clients Reviews
+                    RECENZIILE CLIENȚILOR
                 </h2>
                 <div style={{
                     width: "50px", height: "1px", margin: "0 auto",

@@ -9,8 +9,8 @@ export default function ContactUs() {
                     <path d="M16 3C10.477 3 6 7.477 6 13c0 7 10 16 10 16s10-9 10-16c0-5.523-4.477-10-10-10z" stroke="#C9A84C" strokeWidth="1.5"/>
                 </svg>
             ),
-            label: "Address",
-            lines: ["304 North Cardinal St.", "Dorchester Center, MA 02124"],
+            label: "ADRESA",
+            lines: ["Bacioi str sfantul Mihail 6, Chișinău, Moldova"],
         },
         {
             icon: (
@@ -20,7 +20,7 @@ export default function ContactUs() {
                 </svg>
             ),
             label: "Email",
-            lines: ["info@company.com"],
+            lines: ["mariuscoritoru@gmail.com"],
         },
         {
             icon: (
@@ -28,8 +28,8 @@ export default function ContactUs() {
                     <path d="M6 5h5l2 5-2.5 2.5c1.5 3 4 5.5 7 7L20 17l5 2v5c0 1.1-.9 2-2 2C10.4 26 6 11.6 6 7c0-1.1.9-2 2-2z" stroke="#C9A84C" strokeWidth="1.5" strokeLinejoin="round"/>
                 </svg>
             ),
-            label: "Phone",
-            lines: ["(+63) 555 1212", "(+63) 555 1212"],
+            label: "TELEFON",
+            lines: ["+373 68 376 883"],
         },
         {
             icon: (
@@ -38,8 +38,8 @@ export default function ContactUs() {
                     <path d="M16 9v7l4 4" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
             ),
-            label: "Working Hours",
-            lines: ["Mon - Fri: 10am - 6pm", "Sat - Sun: 10am - 6pm"],
+            label: "PROGRAM DE LUCRU",
+            lines: ["Luni - Vineri: 9 - 19", "Sâmbătă - Duminică: 10 - 18"],
         },
     ];
 
@@ -73,7 +73,7 @@ export default function ContactUs() {
                     margin: "0 0 20px",
                     fontFamily: "Georgia, 'Times New Roman', serif",
                 }}>
-                    Contact Us
+                    CONTACTEAZĂ-NE
                 </h2>
                 <p style={{
                     color: "rgba(220,210,190,0.6)",
@@ -84,8 +84,7 @@ export default function ContactUs() {
                     maxWidth: "580px",
                     margin: "0 auto",
                 }}>
-                    Duis pretium gravida enim, vel maximus ligula fermentum a. Sed rhoncus eget ex id egestas.
-                    Nam nec nisl placerat, tempus erat a, condimentum metusurabitur nulla nisi.
+                    Fiecare detaliu contează atunci când vine vorba de stilul tău. Programează-ți vizita sau contactează-ne pentru orice întrebare — echipa noastră este pregătită să îți ofere o experiență rafinată, de la început până la final.
                 </p>
             </div>
 

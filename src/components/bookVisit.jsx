@@ -2,6 +2,8 @@
 "use client";
 
 export default function CTABanner() {
+    const bookingUrl = "https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A";
+
     return (
         <div style={{
             width: "100%",
@@ -69,7 +71,7 @@ export default function CTABanner() {
                     fontStyle: "italic",
                     margin: "0 0 16px",
                 }}>
-                    Ready?
+                    EȘTI GATA?
                 </p>
 
                 {/* Headline */}
@@ -82,7 +84,7 @@ export default function CTABanner() {
                     margin: "0 0 18px",
                     lineHeight: 1.15,
                 }}>
-                    Your Best Look Starts Here
+                    Cel mai bun look al tău începe aici
                 </h2>
 
                 {/* Subtext */}
@@ -95,13 +97,14 @@ export default function CTABanner() {
                     margin: "0 0 40px",
                     lineHeight: 1.6,
                 }}>
-                    Walk in or call ahead. We're ready when you are.
+                    Vino direct sau sună înainte. Suntem pregătiți când ești și tu.
                 </p>
 
                 {/* Buttons */}
                 <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "center" }}>
                     {/* Primary — gold fill */}
                     <button
+                        type="button"
                         style={{
                             background: "#C9A84C",
                             border: "none",
@@ -126,8 +129,9 @@ export default function CTABanner() {
                             e.currentTarget.style.background = "#C9A84C";
                             e.currentTarget.style.transform = "translateY(0)";
                         }}
+                        onClick={() => window.open(bookingUrl, "_blank", "noopener,noreferrer")}
                     >
-                        Book Now
+                        Programează-te Acum
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path d="M1 7h12M8 2l5 5-5 5" stroke="#0a0a0a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
@@ -158,7 +162,7 @@ export default function CTABanner() {
                             e.currentTarget.style.transform = "translateY(0)";
                         }}
                     >
-                        +373 691 50 348
+                        +373 68 376 883
                     </button>
                 </div>
             </div>
