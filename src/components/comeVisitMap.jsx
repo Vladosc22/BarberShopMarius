@@ -15,10 +15,17 @@ export default function ComeVisit() {
             highlight: false,
         },
         {
-            icon: <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="16" rx="2" stroke="#C9A84C" strokeWidth="1.8"/><path d="M4 10l12 8 12-8" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round"/></svg>,
-            label: "EMAIL",
-            value: "mariuscoritoru@gmail.com",
+            icon: (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" stroke="#C9A84C" strokeWidth="1.8" />
+                    <circle cx="12" cy="12" r="4.2" stroke="#C9A84C" strokeWidth="1.8" />
+                    <circle cx="17.5" cy="6.7" r="1.1" fill="#C9A84C" />
+                </svg>
+            ),
+            label: "INSTAGRAM",
+            value: "@wb_barbershop_",
             highlight: true,
+            link: "https://www.instagram.com/wb_barbershop_/",
         },
         {
             icon: <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="#C9A84C" strokeWidth="1.8"/><path d="M16 9v7l4 4" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>,
@@ -158,7 +165,21 @@ export default function ComeVisit() {
                         flex: 1,
                     }}>
                         {cards.map((card, i) => (
-                            <div key={i} style={{
+                            <div
+                                key={i}
+                                onClick={() => {
+                                    if (card.link) window.open(card.link, "_blank", "noopener,noreferrer");
+                                }}
+                                onKeyDown={(e) => {
+                                    if (!card.link) return;
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        window.open(card.link, "_blank", "noopener,noreferrer");
+                                    }
+                                }}
+                                role={card.link ? "button" : undefined}
+                                tabIndex={card.link ? 0 : -1}
+                                style={{
                                 background: "rgba(255,255,255,0.025)",
                                 border: `1px solid ${card.highlight ? "rgba(201,168,76,0.55)" : "rgba(201,168,76,0.15)"}`,
                                 padding: "22px 24px",
@@ -167,6 +188,7 @@ export default function ComeVisit() {
                                 gap: "16px",
                                 boxSizing: "border-box",
                                 minHeight: "90px",
+                                cursor: card.link ? "pointer" : "default",
                             }}>
                                 <div style={{ marginTop: "2px", flexShrink: 0 }}>{card.icon}</div>
                                 <div>
