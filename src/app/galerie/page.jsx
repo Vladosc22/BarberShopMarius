@@ -264,9 +264,9 @@ export default function GaleriePage() {
                style={{ backgroundImage: "repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.07) 3px,rgba(0,0,0,0.07) 4px)" }}
           />
 
-          <div className="relative mx-auto max-w-5xl">
+          <div className="relative mx-auto max-w-5xl text-center">
             {/* decorative scissor row — same as hero */}
-            <div className="mb-8 flex flex-col items-start gap-2.5 md:mb-10">
+            <div className="mx-auto mb-8 flex flex-col items-center gap-2.5 md:mb-10">
               <span className="h-px w-8 bg-[#97d9ff]" />
               <div className="flex items-center gap-4 text-[#d4af37] md:gap-6">
                 <span className="h-px w-16 bg-[#d4af37]/60 md:w-24 xl:w-32" />
@@ -275,10 +275,6 @@ export default function GaleriePage() {
               </div>
               <span className="h-px w-6 bg-[#f2a0ba]" />
             </div>
-
-            <p className="font-label text-xs uppercase tracking-[0.3em] text-[#d4af37]">
-              Galerie
-            </p>
 
             <h1 className="font-display mt-4 text-[clamp(2.4rem,6vw,4.5rem)] uppercase leading-[0.95] tracking-[0.08em] text-white">
               Our Signature Work
