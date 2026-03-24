@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const navItems = [
   { label: "Acasă", href: "#home", active: true },
@@ -71,6 +72,7 @@ function MustacheIcon() {
 
 export function BarbershopHero() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -79,6 +81,15 @@ export function BarbershopHero() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
 
   return (
     <main id="home" className="relative min-h-[100svh] w-full bg-[#15110f]">
@@ -216,8 +227,13 @@ export function BarbershopHero() {
       </div>
 
       <section className="relative z-10 flex min-h-[100svh] items-center justify-center px-6 pt-24 pb-6 md:px-10 md:pt-28 md:pb-8 xl:px-[120px]">
-        <div className="flex max-w-5xl -translate-y-2 flex-col items-center text-center md:-translate-y-4">
-          <div className="mb-5 flex flex-col items-center gap-2.5 md:mb-6 md:gap-3">
+        <motion.div
+          className="flex max-w-5xl -translate-y-2 flex-col items-center text-center md:-translate-y-4"
+          initial="hidden"
+          animate="show"
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+        >
+          <motion.div className="mb-5 flex flex-col items-center gap-2.5 md:mb-6 md:gap-3" variants={fadeUp}>
             <span className="h-px w-8 bg-[#97d9ff]" />
 
             <div className="flex items-center gap-4 text-[#d4af37] md:gap-6">
@@ -227,17 +243,17 @@ export function BarbershopHero() {
             </div>
 
             <span className="h-px w-6 bg-[#f2a0ba]" />
-          </div>
+          </motion.div>
 
-          <h1 className="font-display max-w-[10ch] text-[clamp(2.9rem,10vw,7.5rem)] uppercase leading-[0.95] tracking-[0.08em] text-white">
+          <motion.h1 variants={fadeUp} className="font-display max-w-[10ch] text-[clamp(2.9rem,10vw,7.5rem)] uppercase leading-[0.95] tracking-[0.08em] text-white">
             WB Barbershop
-          </h1>
+          </motion.h1>
 
-          <div className="mt-4 text-[#d4af37] md:mt-5">
+          <motion.div variants={fadeUp} className="mt-4 text-[#d4af37] md:mt-5">
             <MustacheIcon />
-          </div>
+          </motion.div>
 
-          <div className="relative mt-5 w-full max-w-[330px] px-7 py-4 md:mt-7 md:max-w-[390px] md:px-9">
+          <motion.div variants={fadeUp} className="relative mt-5 w-full max-w-[330px] px-7 py-4 md:mt-7 md:max-w-[390px] md:px-9">
             <div className="absolute inset-0 border border-[#d4af37]/35" />
             <div className="absolute left-3 top-3 h-2.5 w-2.5 rotate-45 border border-[#d4af37]/80 bg-[#15110f]" />
             <div className="absolute right-3 top-3 h-2.5 w-2.5 rotate-45 border border-[#d4af37]/80 bg-[#15110f]" />
@@ -253,12 +269,13 @@ export function BarbershopHero() {
               <div className="h-px flex-1 bg-[#d4af37]/30" />
               <span>2024</span>
             </div>
-          </div>
+          </motion.div>
 
-          <p className="mt-5 max-w-[620px] text-[14px] leading-[1.8] text-white/60 md:mt-6 md:text-[14px]" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
-            Tunsori clasice, stil modern și o experiență de frizerie atemporală.          </p>
+          <motion.p variants={fadeUp} className="mt-5 max-w-[620px] text-[14px] leading-[1.8] text-white/60 md:mt-6 md:text-[14px]" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
+            Tunsori clasice, stil modern și o experiență de frizerie atemporală.
+          </motion.p>
 
-          <div id="booking" className="mt-5 flex w-full max-w-[560px] flex-col items-center justify-center gap-3 sm:flex-row md:mt-7">
+          <motion.div variants={fadeUp} id="booking" className="mt-5 flex w-full max-w-[560px] flex-col items-center justify-center gap-3 sm:flex-row md:mt-7">
             <a
               href="https://l.instagram.com/?u=https%3A%2F%2Fbookingwb.setmore.com%2Fc8djwtkb24%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5YZ0eSnziMWoDJLun36eDZiU5uHJw0PWhIbyh04JgYWfVyadWPW57ukVbjk_aem_mvlT1rYHBC0AcxTUaQjr9g&e=AT5hl6ZoO3lVWW3mXhlN8YatdR4nTnMAjEN3s7_SMbHj0w8rGrGaTVveugNAK4CjR8knUSOXDH8tr7O_ZTPQJ8kE22nJoGlXn1kg_fUm7A"
               target="_blank"
@@ -273,8 +290,8 @@ export function BarbershopHero() {
             >
               Explorează Serviciile
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
     </main>
   );

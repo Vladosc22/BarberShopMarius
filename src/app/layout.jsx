@@ -28,7 +28,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "WB Barbershop",
-  description: "Premium cinematic hero section for a luxury barbershop web app.",
+  description: "WB Barbershop",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
