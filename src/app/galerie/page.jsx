@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 
 /* ── reuse the same nav items & icons from BarbershopHero ── */
 const navItems = [
-  { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
+  { label: "Acasă", href: "/#home" },
+  { label: "Servicii", href: "/#services" },
   { label: "Galerie", href: "/galerie#galerie-content", active: true },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Contactează-ne", href: "/#contact" },
 ];
 
 const galleryPhotos = [
@@ -144,7 +144,7 @@ function GalerieCard({ index, photo, onOpen }) {
             className="text-[9px] font-semibold uppercase tracking-[0.2em]"
             style={{ color: color }}
         >
-          View Photo
+vezi fotografia
         </span>
         </div>
 
@@ -255,7 +255,7 @@ export default function GaleriePage() {
                 rel="noopener noreferrer"
                 className="font-label hidden h-11 items-center justify-self-end border border-[#d4af37] bg-white/0 px-5 py-0 text-center text-[14px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-[#d4af37]/12 md:inline-flex md:justify-self-end"
             >
-              Book Appointment
+              Progeramează-te
             </a>
 
           </header>
@@ -333,7 +333,7 @@ export default function GaleriePage() {
             </div>
 
             <h1 className="font-display mt-4 text-[clamp(2.4rem,6vw,4.5rem)] uppercase leading-[0.95] tracking-[0.08em] text-white">
-              Our Signature Work
+              LUCRĂRILE NOASTRE DE REFERINȚĂ
             </h1>
 
             {/* framed tagline box — mirrors hero's Est. 2024 box */}
@@ -348,8 +348,7 @@ export default function GaleriePage() {
               <div className="absolute left-0 top-1/2 h-px w-5 -translate-x-1/2 -translate-y-1/2 bg-[#d4af37]/70" />
               <div className="absolute right-0 top-1/2 h-px w-5 translate-x-1/2 -translate-y-1/2 bg-[#d4af37]/70" />
               <p className="font-body relative text-[15px] leading-7 text-white/65 md:text-[16px]">
-                Curated cuts, beard styling, and premium grooming results from our shop.
-              </p>
+                Tunsori atent realizate, stilizare a bărbii și rezultate premium de îngrijire oferite în salonul nostru.              </p>
             </div>
 
             {/*<div className="mt-7 flex gap-3 md:mt-9">*/}
@@ -373,7 +372,7 @@ export default function GaleriePage() {
             <div className="mb-6 flex items-center gap-4">
               <span className="h-px flex-1 bg-[#d4af37]/15" />
               <p className="font-label text-xs uppercase tracking-[0.3em] text-[#d4af37]">
-                Latest Work
+                ULTIMELE LUCRĂRI
               </p>
               <span className="h-px flex-1 bg-[#d4af37]/15" />
             </div>
